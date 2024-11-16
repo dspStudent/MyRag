@@ -2,8 +2,12 @@ streamlit
 langchain
 transformers
 huggingface_hub
+langchain-openai
 langchain-huggingface
 langchain_Community
 accelerate
 langchain-groq
 pypdf
+openai
+sentence_transformers
+langchain-qdrant
