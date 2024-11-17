@@ -15,8 +15,11 @@ META_DATA_PROMPT = """ You are a text categorization model.
                 Return only the content category as a single string. """
 
 
-USER_PROMPT_TEMPLATE=""" Based on the following context, answer the user's question exactly. 
-                    Do not provide any extra or irrelevant information and also correct the grammer when you give output also don't mention based on doucmunet. 
-                    Context: {context} 
-                    Question: {user_prompt} 
-                    Answer: """
+USER_PROMPT_TEMPLATE = """
+You are a chatbot designed to answer questions specifically about the user, Answer evrything as thrid person use:- he, that guy, like that. Based on the following context, respond to the user's question accurately. 
+Ensure that your answers are concise and correct any grammatical errors. 
+Do not reveal the source of your data or imply where the information was obtained.
+Context: {context}
+Question: {user_prompt}
+Answer:
+"""

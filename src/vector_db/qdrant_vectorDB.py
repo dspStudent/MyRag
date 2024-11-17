@@ -16,8 +16,21 @@ vector_store = QdrantVectorStore(
     embedding=he.embeddings
 )
 
+vector_store_user_train = QdrantVectorStore(
+    client=qdrant_client,
+    collection_name="my_rag_user_train",
+    embedding=he.embeddings
+)
+
 def add_content(content):
     vector_store.add_documents(content)
 
+def add_content_user(content):
+    vector_store_user_train.add_documents(content)
+
 def retrieve_content(content, k):
     return vector_store.similarity_search(content, k=k)
+
+
+def retrieve_content_user(content, k):
+    return vector_store_user_train.similarity_search(content, k=k)

@@ -22,17 +22,22 @@ def make_chunks(text):
     meta_data= get_meta_data(text)
     chunks=[]
     for chunk in text_split.split_text(text):
-        chunks.append(
-            Document(
-                metadata=meta_data,
-                page_content=chunk
-            )
-        )
+        chunks.append(Document(
+            page_content=chunk,
+            metadata={
+                "name":"Devi Sri Ranga Prasad Gudimetla",
+                "index":meta_data
+            }
+        ))
     return chunks
 
 def add_content(text):
     vdb.add_content(make_chunks(text=text))
 
+def add_content_user(text):
+    data=make_chunks(text=text)
+    print(data)
+    vdb.add_content_user(data)
 
 
 def get_rag_input(prompt,retrival_data):
@@ -41,4 +46,8 @@ def get_rag_input(prompt,retrival_data):
 
 def get_output(text):
     retrival_data=vdb.retrieve_content(content=text, k=const.k)
+    return get_rag_input(prompt=text, retrival_data=retrival_data)
+
+def get_output_user(text):
+    retrival_data=vdb.retrieve_content_user(content=text, k=const.k)
     return get_rag_input(prompt=text, retrival_data=retrival_data)
