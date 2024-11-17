@@ -36,6 +36,7 @@ if check == "User Train":
         prompt = st.text_input("Tell About Devi You Know", placeholder="Tell About Devi You Know..")
         if st.button("Submit Training Data"):
             ser.add_content_user(prompt)
+            st.success("Data saved!")
 
     # Content for the "Test" tab
     with test_tab:
