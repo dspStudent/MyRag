@@ -42,9 +42,9 @@ if check == "User Train":
         st.header("Test Model")
         test_prompt = st.text_input("Test the Model", placeholder="Enter your Prompt")
         if st.button("Submit Test Query"):
-            st.write("User: " + str(prompt))
+            st.write("User: " + str(test_prompt))
 
             # Get the output from the service and display it
-            out_put = ser.get_output_user(prompt)
+            out_put = ser.get_output_user(test_prompt)
             st.write("AI: " + str(out_put))
 
